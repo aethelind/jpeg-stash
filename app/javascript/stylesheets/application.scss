@@ -1,0 +1,73 @@
+@import "~bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+
+$light: #fff;
+$dark: #333;
+
+.actions {
+  text-align: right;
+}
+
+.navbar {
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 100%;
+  font-family: "Inconsolata", Courier, monospace;
+}
+
+.navbar h1 {
+  color: $dark;
+}
+
+body .body {
+  margin: 5px auto;
+  max-width: 650px;
+  line-height: 1.6;
+  font-size: 20px;
+  padding: 0 10px;
+  background: $light;
+  color: $dark;
+  font-family: "Inconsolata", Courier, monospace;
+}
+h1,
+h2 {
+  font-weight: bold;
+}
+h1 {
+  text-align: center;
+}
+
+a:visited {
+  color: $dark;
+}
+.jumbotron {
+  background: #0048cd;
+  color: $light;
+  text-align: center;
+  p {
+    color: $light;
+    font-size: 26px;
+  }
+}
+.link {
+  color: $dark;
+}
+.btn-primary {
+  color: $dark;
+  border-color: $dark;
+  margin-bottom: 5px;
+}
+.btn-sm {
+  background-color: $light;
+  display: inline-block;
+}
+img,
+video,
+audio {
+  margin-top: 20px;
+  max-width: 80%;
+}
+caption {
+  float: left;
+  clear: both;
+}

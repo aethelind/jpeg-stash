@@ -1,4 +1,6 @@
-<h1>JPEG STASH</h1>
+<% content_for :title do %>
+  JPEG Stash
+<% end %>
 <p>
   a place to stash + share all your best jpegs!
 </p>
@@ -17,4 +19,5 @@
     <%= link_to "Log In", login_path %>
   </p>
 <% end %>
-<p>-----Insert jpeg feed here-----</p>
+
+<%= render 'feed' %>

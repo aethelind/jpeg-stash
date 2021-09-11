@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JpegStash</title>
+    <%# <title>JPEG STASH</title> %>
+    <title><%= content_for?(:title) ? yield(:title) : "JPEG STASH" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "JPEG STASH" %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +13,11 @@
   </head>
 
   <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <div class="body">
     <%= yield %>
+    </div>
   </body>
 </html>
