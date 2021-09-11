@@ -4,6 +4,28 @@
 $light: #fff;
 $dark: #333;
 
+.feed-post {
+  //   border: 1px solid black;
+  //   border-top: 1px solid black;
+  //   border-right: 2px dashed #f0f;
+  border-bottom: 1px solid black;
+  //   border-left: 5px solid #09f;
+}
+
+.feed-post img {
+  display: block;
+  //   margin-left: auto;
+  //   margin-right: auto;
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  margin-top: 0px;
+}
+
+#notice {
+  color: red;
+}
+
 .actions {
   text-align: right;
 }
@@ -61,12 +83,7 @@ a:visited {
   background-color: $light;
   display: inline-block;
 }
-img,
-video,
-audio {
-  margin-top: 20px;
-  max-width: 80%;
-}
+
 caption {
   float: left;
   clear: both;

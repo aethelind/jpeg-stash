@@ -1,1 +1,16 @@
-<p>-----Insert jpeg feed here-----</p>
+<h2>Feed</h2>
+<%# Image.order('created_at desc') %>
+<% @images.order('created_at desc').each do |image| %>
+    <div class="feed-post">
+        @<%= image.user.username %> shared:
+        <%= image_tag image.image %>
+        <p>
+            <%= image.title %>.jpeg
+            
+            <% if current_user and current_user.id == image.user_id %>
+                <%= link_to 'Delete', image, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+        </p>
+    </div>
+
+<% end %>

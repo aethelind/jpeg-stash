@@ -27,7 +27,7 @@ class ImagesController < ApplicationController
     respond_to do |format|
       if @image.save
         # @image.user_id = current_user.id
-        format.html { redirect_to @image, notice: "Image was successfully created." }
+        format.html { redirect_to root_path, notice: "Image was successfully created." }
         format.json { render :show, status: :created, location: @image }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -51,10 +51,18 @@ class ImagesController < ApplicationController
 
   # DELETE /images/1 or /images/1.json
   def destroy
-    @image.destroy
-    respond_to do |format|
-      format.html { redirect_to images_url, notice: "Image was successfully destroyed." }
-      format.json { head :no_content }
+    if current_user and current_user.id == @image.user_id
+      @image.destroy
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: "Image was successfully deleted." }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: "You do not have permissions to delete this image." }
+        format.json { head :no_content }
+      end
+      
     end
   end
 
