@@ -1,11 +1,42 @@
-# README
+# ✨📷  JPEG Stash 📷✨
+[---------- LIVE DEMO ----------](https://jpeg-stash.herokuapp.com/)  
+JPEG Stash is an [image repository](https://docs.google.com/document/d/1eg3sJTOwtyFhDopKedRD6142CFkDfWp1QvRKXNTPIOc/edit?usp=sharing) where you can stash all your cool JPEGs!  
+Built with Ruby on Rails, deployed on Heroku.  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TODO
 
-Things you may want to cover:
+## Test Suite
+TODO
 
-* Ruby version
+## Running Locally
+<!-- Clone this repo, and cd into the jpeg-stash folder.
+```
+git clone https://github.com/aethelind/jpeg-stash.git
+# OR
+git clone git@github.com:aethelind/jpeg-stash.git
+```
+```
+cd jpeg-stash
+``` -->
+
+Ensure all the required dependencies are installed:
+```
+bundle install 
+```
+
+Run the Database Migrations:
+```
+rake db:migrate
+```
+
+Serve jpeg-stash
+```
+rails s
+```
+
+jpeg-stash should now be running [locally on port 3000](http://localhost:3000/).
+
+<!-- * Ruby version
 
 * System dependencies
 
@@ -21,4 +52,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* ... -->
