@@ -1,5 +1,5 @@
 <h2>Feed</h2>
-<%# Image.order('created_at desc') %>
+
 <% @images.order('created_at desc').each do |image| %>
     <div class="feed-post">
         @<%= image.user.username %> shared:
