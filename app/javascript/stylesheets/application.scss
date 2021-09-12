@@ -5,10 +5,12 @@ $light: #fff;
 $dark: #333;
 
 .feed-post {
-  border-bottom: 1px solid black;
+  border-bottom: 1px dashed black;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
-.feed-post img {
+img {
   display: block;
   width: 100%;
   max-height: 600px;

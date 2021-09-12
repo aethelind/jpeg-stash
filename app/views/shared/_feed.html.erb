@@ -1,0 +1,16 @@
+<% images.order('created_at desc').each do |image| %>
+    <div class="feed-post">
+        <%= image_tag image.image %>
+        <p class="feed-content">
+            <strong>@<%= link_to image.user.username, image.user %></strong>
+            "<%= image.title %>"
+            <br>
+            Posted <%= time_ago_in_words(image.created_at) %> ago.
+            
+            <% if current_user and current_user.id == image.user_id %>
+                <%= link_to 'Edit', edit_image_path(image) %> 
+                <%= link_to 'Delete', image, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+        </p>
+    </div>
+<% end %>

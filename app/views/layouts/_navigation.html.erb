@@ -1,20 +1,20 @@
 <nav class="navbar navbar-expand-md navbar-light">
     <div class="container-fluid">
         <div class="w-100 order-1 order-md-0 dual-collapse2">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".dual-collapse2">
-                <span class="navbar-toggler-icon"></span>
-            </button>
         </div>
 
         <div class="mx-auto order-0">
             <a class="navbar-brand mx-auto" href="/"> <h1> <%= content_for?(:title) ? yield(:title) : "JPEG STASH" %> </h1></a>
-            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
 
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ms-auto">
                 <li class='nav-item'><%= link_to 'Feed', root_path, class: 'nav-link' %></li> 
                 <% if current_user %>
+                    <li class='nav-item'><%= link_to 'Profile', current_user, class: 'nav-link' %></li>
                     <li class='nav-item'><%= link_to 'Stash a JPEG', upload_path, class: 'nav-link' %></li>
                     <li class='nav-item'><%= link_to 'Log Out', logout_path, class: 'nav-link' %></li>
                 <% else %>
@@ -25,24 +25,3 @@
         </div>
     </div>
 </nav>
-
-<!--
-<nav class="navbar navbar-light navbar-static-top navbar-expand-md text-right">
-    <div class="container">
-        <%# <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> %>
-        <%# </button> <%= link_to "JPEG STASH", root_path, class: 'navbar-brand' %>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav ml-auto">
-                <li class='nav-item'><%= link_to 'Feed', root_path, class: 'nav-link' %></li> 
-                <% if current_user %>
-                    <li class='nav-item'><%= link_to 'Stash a JPEG', upload_path, class: 'nav-link' %></li>
-                    <li class='nav-item'><%= link_to 'Log Out', logout_path, class: 'nav-link' %></li>
-                <% else %>
-                    <li class='nav-item'><%= link_to 'Sign Up', signup_path, class: 'nav-link' %></li>
-                    <li class='nav-item'><%= link_to 'Log In', login_path, class: 'nav-link' %></li>
-                <% end %>
-            </ul>
-        </div>
-    </div>
-</nav>
--->

@@ -38,13 +38,20 @@ class ImagesController < ApplicationController
 
   # PATCH/PUT /images/1 or /images/1.json
   def update
-    respond_to do |format|
-      if @image.update(image_params)
-        format.html { redirect_to @image, notice: "Image was successfully updated." }
-        format.json { render :show, status: :ok, location: @image }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
+    if current_user and current_user.id == @image.user_id
+      respond_to do |format|
+        if @image.update(image_params)
+          format.html { redirect_to @image, notice: "Image was successfully updated." }
+          format.json { render :show, status: :ok, location: @image }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @image.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: "You do not have permissions to edit this image." }
+        format.json { head :no_content }
       end
     end
   end

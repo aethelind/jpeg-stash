@@ -1,6 +1,8 @@
-<h1>Editing Image</h1>
+<% content_for :title do %>
+  Edit
+<% end %>
 
-<%= render 'form', image: @image %>
+<%= render 'edit_form', image: @image %>
 
 <%= link_to 'Show', @image %> |
 <%= link_to 'Back', images_path %>
