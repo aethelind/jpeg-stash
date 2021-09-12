@@ -1,19 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @image.title %>
-</p>
+<%= render 'shared/post', image: @image %>
 
-<p>
-  <strong>User:</strong>
-  <%= User.find(@image.user_id).username %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @image.image %>
-</p>
-
-<%= link_to 'Edit', edit_image_path(@image) %> |
 <%= link_to 'Back', root_path %>
