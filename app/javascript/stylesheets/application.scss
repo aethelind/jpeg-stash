@@ -47,6 +47,7 @@ body .content {
   color: $dark;
   font-family: "Inconsolata", Courier, monospace;
 }
+
 h1,
 h2 {
   font-weight: bold;
@@ -54,7 +55,9 @@ h2 {
 h1 {
   text-align: center;
 }
-
+a {
+  color: $dark;
+}
 a:visited {
   color: $dark;
 }

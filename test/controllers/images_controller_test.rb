@@ -1,8 +1,13 @@
 require "test_helper"
 
 class ImagesControllerTest < ActionDispatch::IntegrationTest
+  def current_user
+    @current_user
+  end
+
   setup do
     @image = images(:one)
+    @current_user = @image.user
   end
 
   test "should get index" do
@@ -35,7 +40,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should update image" do
     patch image_url(@image), params: { image: { title: @image.title, user_id: @image.user_id } }
-    assert_redirected_to image_url(@image)
+    assert_redirected_to root_path
   end
 
   test "should destroy image" do

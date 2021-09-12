@@ -7,7 +7,7 @@
         Posted <%= time_ago_in_words(image.created_at) %> ago.
         
         <% if current_user and current_user.id == image.user_id %>
-            <%= link_to 'Edit', edit_image_path(image) %> 
+            <%= link_to 'Edit', edit_image_path(image) %> | 
             <%= link_to 'Delete', image, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
     </p>
