@@ -5,9 +5,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
   end
 
-  test "should get index" do
-    get users_url
-    assert_response :success
+  test "user index should not exist" do
+    assert_raise ActionController::RoutingError do
+      get users_path
+    end
   end
 
   test "should get new" do
@@ -17,25 +18,15 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user" do
     assert_difference('User.count') do
-      post users_url, params: { user: { password: 'secret', password_confirmation: 'secret', username: @user.username } }
+      post users_url, params: { user: { password: 'secret', password_confirmation: 'secret', username: 'test' } }
     end
 
-    assert_redirected_to user_url(User.last)
+    assert_redirected_to root_path
   end
 
   test "should show user" do
     get user_url(@user)
     assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_user_url(@user)
-    assert_response :success
-  end
-
-  test "should update user" do
-    patch user_url(@user), params: { user: { password: 'secret', password_confirmation: 'secret', username: @user.username } }
-    assert_redirected_to user_url(@user)
   end
 
   test "should destroy user" do

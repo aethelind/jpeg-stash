@@ -7,7 +7,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     @image = images(:one)
-    @current_user = @image.user
+    @current_user = users(:one)
   end
 
   test "should get index" do
