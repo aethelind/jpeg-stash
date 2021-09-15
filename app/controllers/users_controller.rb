@@ -50,10 +50,18 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
-      format.json { head :no_content }
+    if current_user and current_user.id == @user.id
+      session.destroy
+      @user.destroy
+      respond_to do |format|
+        format.html { redirect_to root_url, notice: "User was successfully deleted." }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to @user, notice: "You do not have permissions to delete this user." }
+        format.json { head :no_content }
+      end
     end
   end
 

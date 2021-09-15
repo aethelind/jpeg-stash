@@ -4,6 +4,10 @@
   @<%= @user.username %>'s Stashed JPEGs
 </h2>
 
+<% if current_user and current_user.id == @user.id %>
+    <%= link_to 'Delete your account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
 <%= render 'shared/feed', images: @user.images %>
 
 <%= link_to 'Back', root_path %>
