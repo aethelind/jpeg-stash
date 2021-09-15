@@ -23,6 +23,8 @@ describe 'upload process' do
       click_button 'Upload Image'
       expect(page).to have_content 'Image was successfully created.'
       expect(page).to have_content '@test-user "Test image"'
+      click_link 'Profile'
+      expect(page).to have_content '@test-user "Test image"'
     end
 
     it 'should successfully edit image' do
