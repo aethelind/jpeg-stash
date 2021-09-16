@@ -26,4 +26,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run tests
-        run: HEADLESS=true rspec spec/features 
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+          bundle exec rails test
+          HEADLESS=true rspec spec/features 
