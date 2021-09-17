@@ -15,12 +15,7 @@ jobs:
       with:
         ruby-version: 2.6.5 
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - name: Run tests
-      env:
-        PGHOST: 127.0.0.1
-        PGUSER: postgres
-        RAILS_ENV: test
     - run: |
-        bundle exec rails db:create
-        bundle exec rails db:migrate
+        #bundle exec rails db:schema:load
+        #bundle exec rails db:migrate
         HEADLESS=true bundle exec rspec spec/features 
