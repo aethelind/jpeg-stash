@@ -6,16 +6,22 @@ jobs:
   test:
     runs-on: ubuntu-latest
     services:
-      db:
+      postgres:
         image: postgres:11
-        ports: ['5432:5432']
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        ports:
+          - 5432:5432
     steps:
+    - run: sudo apt-get install libpq-dev
     - uses: actions/checkout@v2
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.6.5 
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+        bundler-cache: true 
     - run: |
-        #bundle exec rails db:schema:load
+        #bundle exec rails db:create
         #bundle exec rails db:migrate
         HEADLESS=true bundle exec rspec spec/features 
