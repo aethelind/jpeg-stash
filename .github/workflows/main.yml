@@ -2,6 +2,9 @@
 
 name: CI
 on: [push, pull_request]
+env:
+  RAILS_ENV: test
+  DATABASE_URL: postgres://postgres:postgres@localhost
 jobs:
   test:
     runs-on: ubuntu-latest
