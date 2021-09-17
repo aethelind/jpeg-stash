@@ -32,6 +32,8 @@ jobs:
            POSTGRES_PASSWORD: password
            POSTGRES_USER: jpeg_stash
            RAILS_ENV: test
-         run: bundle exec rake db:setup
+         run: | 
+           bundle exec rails console
+           bundle exec rake db:setup
        - name: run tests
          run: HEADLESS=true bundle exec rspec spec/features 
