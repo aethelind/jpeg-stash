@@ -3,7 +3,6 @@
 name: CI
 on: [push, pull_request]
 jobs:
-
   test:
     runs-on: ubuntu-latest
     services:
@@ -16,6 +15,11 @@ jobs:
       with:
         ruby-version: 2.6.5 
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - name: Run tests
+      env:
+        PGHOST: 127.0.0.1
+        PGUSER: postgres
+        RAILS_ENV: test
     - run: |
         bundle exec rails db:create
         bundle exec rails db:migrate
