@@ -24,9 +24,6 @@ describe 'signup process' do
 
     it 'should delete account' do
       delete_account
-      if not ENV['HEADLESS'] == 'true'
-        page.driver.browser.switch_to.alert.accept
-      end
       expect(page).to have_content 'User was successfully deleted.'
     end
 

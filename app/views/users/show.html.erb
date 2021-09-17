@@ -5,7 +5,7 @@
 </h2>
 
 <% if current_user and current_user.id == @user.id %>
-    <%= link_to 'Delete your account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Delete your account', @user, method: :delete %>
 <% end %>
 
 <%= render 'shared/feed', images: @user.images %>
