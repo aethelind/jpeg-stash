@@ -7,11 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:11
+        image: postgres:12.3-alpine
         env:
-          POSTGRES_PASSWORD: password
-          POSTGRES_USER: jpeg_stash
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
     steps:
        - uses: actions/checkout@v1
 
@@ -27,13 +32,7 @@ jobs:
          run: |
            gem install bundler
            bundle install --jobs 4 --retry 3
-       - name: setup databases
-         env:
-           POSTGRES_PASSWORD: password
-           POSTGRES_USER: jpeg_stash
-           RAILS_ENV: test
-         run: | 
-           psql -p 5432 -h localhost 
-           bundle exec rake db:setup
+       - name: Setup test database
+         run: bundle exec rails db:create db:migrate
        - name: run tests
          run: HEADLESS=true bundle exec rspec spec/features 
