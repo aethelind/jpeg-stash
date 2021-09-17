@@ -9,18 +9,28 @@ jobs:
       postgres:
         image: postgres:11
         env:
-          POSTGRES_PASSWORD: password
-          POSTGRES_USER: jpeg_stash
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-        ports:
-          - 5432:5432
     steps:
-    - run: sudo apt-get install libpq-dev
-    - uses: actions/checkout@v2
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6.5 
-        bundler-cache: true 
-    - run: |
-        bundle exec rails db:migrate
-        HEADLESS=true bundle exec rspec spec/features 
+       - uses: actions/checkout@v1
+
+       - uses: actions/setup-ruby@v1
+         with:
+           ruby-version: 2.6.x
+
+       - name: Install dependent libraries
+         run: sudo apt-get install libpq-dev
+
+       - name: Bundle install
+         run: |
+           gem install bundler
+           bundle install --jobs 4 --retry 3
+       - name: setup databases
+         env:
+           POSTGRES_PASSWORD: postgres
+           POSTGRES_USER: postgres
+           RAILS_ENV: test
+         run: bundle exec rake db:setup
+       - name: run tests
+         run: HEADLESS=true bundle exec rspec spec/features 
