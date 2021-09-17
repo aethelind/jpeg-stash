@@ -41,7 +41,9 @@ describe 'upload process' do
       visit root_path
       expect(page).to have_content '@test-user "New title"'
       click_link 'Delete'
-      page.driver.browser.switch_to.alert.accept
+      if not ENV['HEADLESS'] == 'true'
+        page.driver.browser.switch_to.alert.accept
+      end
       expect(page).to have_content 'Image was successfully deleted.'
     end
 
