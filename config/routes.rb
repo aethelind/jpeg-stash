@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :images
+  resources :images, only: [:new, :show, :create, :destroy, :edit]
   get 'home/index'
   root 'home#index'
   
