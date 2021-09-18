@@ -9,7 +9,7 @@ JPEG Stash is an [image repository](https://docs.google.com/document/d/1eg3sJTOw
 Built with Ruby on Rails, deployed on Heroku.  
 
 ## Test Suite 
-![Tests](https://github.com/aethelind/jpeg-stash/actions/workflows/main.yml/badge.svg)
+![Tests](https://github.com/aethelind/jpeg-stash/actions/workflows/main.yml/badge.svg?branch=master)
 
 
 ## Running Locally
