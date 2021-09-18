@@ -65,7 +65,9 @@ def delete_account
     
   visit root_path
   click_link 'Profile'
-  click_link 'Delete your account'
+  accept_confirm "Are you sure?" do
+    click_link 'Delete your account'
+  end
   
 end
 
