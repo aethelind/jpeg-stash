@@ -6,7 +6,10 @@ Built with Ruby on Rails, deployed on Heroku.
 
 [<img width="1552" alt="feed" src="https://user-images.githubusercontent.com/42299845/133905809-d2a7347f-6240-41b5-a1a0-f395d1f24384.png">](https://jpeg-stash.herokuapp.com/)
 
-## Features:
+## Demo
+### [ ---> :rocket: Live Demo Here! :rocket: <--- ](https://jpeg-stash.herokuapp.com/)  
+
+## Features
 - Scroll through the main feed to check out all the images users have uploaded
 - Create or login to an account
 - Upload and title an image
@@ -14,12 +17,9 @@ Built with Ruby on Rails, deployed on Heroku.
 - Delete your uploaded image
 - Delete your account 
 
-## Demo
-### [ ---> :rocket: Live Demo Here! :rocket: <--- ](https://jpeg-stash.herokuapp.com/)  
-
 ## Test Suite   
 ![Tests](https://github.com/aethelind/jpeg-stash/actions/workflows/main.yml/badge.svg?branch=master)  
-The test suite was created with Capybara, Selenium, and RSpec. It tests the  I created [a github action](https://github.com/aethelind/jpeg-stash/actions/workflows/main.yml) to run the tests after every commit or pull request. The change won't be deployed to Heroku unless the tests pass.  
+The test suite was created with Capybara, Selenium, and RSpec. I created [a github action](https://github.com/aethelind/jpeg-stash/actions/workflows/main.yml) to run the tests after every commit or pull request. The change won't be deployed to Heroku unless the tests pass.  
 
 
 
