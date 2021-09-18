@@ -1,6 +1,6 @@
 # Basic workflow from https://github.com/ruby/setup-ruby
 
-name: CI
+name: Test
 on: [push, pull_request]
 env:
   RAILS_ENV: test
@@ -22,15 +22,12 @@ jobs:
           - 5432:5432
     steps:
        - uses: actions/checkout@v1
-
        - uses: ruby/setup-ruby@v1
          with:
            ruby-version: 2.6.5
            bundler-cache: true
-
        - name: Install dependent libraries
          run: sudo apt-get install libpq-dev
-
        - name: Bundle install
          run: |
            gem install bundler
