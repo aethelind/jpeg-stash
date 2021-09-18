@@ -40,13 +40,15 @@ describe 'upload process' do
     it 'should successfully delete image' do
       visit root_path
       expect(page).to have_content '@test-user "New title"'
-      click_link 'Delete'
-      page.driver.browser.switch_to.alert.accept
+      accept_confirm "Are you sure?" do
+        click_link 'Delete'
+      end
       expect(page).to have_content 'Image was successfully deleted.'
     end
 
-    after(:all, :js => true) do
-        delete_account
+    it 'should delete account' do
+      delete_account
+      expect(page).to have_content 'User was successfully deleted.'
     end
   end
 end

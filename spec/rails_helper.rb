@@ -65,7 +65,9 @@ def delete_account
     
   visit root_path
   click_link 'Profile'
-  click_link 'Delete your account'
+  accept_confirm "Are you sure?" do
+    click_link 'Delete your account'
+  end
   
 end
 
@@ -100,4 +102,22 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.add_preference(:download, prompt_for_download: false, default_directory: '/tmp/downloads')
+  options.add_preference(:browser, set_download_behavior: { behavior: 'allow' })
+
+  Capybara.register_driver :chrome do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+  end
+
+  Capybara.register_driver :headless_chrome do |app|
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--window-size=1280,800')
+    options.add_argument('--no-sandbox')
+
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+  end
+
+  Capybara.javascript_driver = :headless_chrome
 end

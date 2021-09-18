@@ -24,7 +24,6 @@ describe 'signup process' do
 
     it 'should delete account' do
       delete_account
-      page.driver.browser.switch_to.alert.accept
       expect(page).to have_content 'User was successfully deleted.'
     end
 
