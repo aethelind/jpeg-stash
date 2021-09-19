@@ -10,12 +10,13 @@ Built with Ruby on Rails, deployed on Heroku.
 ### [ ---> :rocket: Live Demo Here! :rocket: <--- ](https://jpeg-stash.herokuapp.com/)  
 
 ## Features
-- Scroll through the main feed to check out all the images users have uploaded
-- Create or login to an account
-- Upload and title an image
-- Edit your image's title
-- Delete your uploaded image
-- Delete your account 
+### Feed
+The main page of JPEG Stash shows a feed of all the images users have uploaded, with the most recent image on top.
+### Image Upload
+Users can upload images to JPEG stash. The image must be a JPEG or PNG, and have a maximum size of 3MB.  
+Since JPEG Stash is deployed on Heroku, images must be stored in an object store elsewhere. I chose to integrate an Amazon S3 bucket for storage.
+### User Access Management
+JPEG Stash can be accessed without an account, but creating an account is quick and easy. I implemented simple authentication using bcrypt to encrypt passwords. When a user successfully logs in, a session is created. Logging out destroys this session. Images can only be editted or deleted if the logged in user is also the uploader of the image. Users can be created or deleted, and deleting a user also deletes any images they uploaded. 
 
 ## Test Suite   
 ![Tests](https://github.com/aethelind/jpeg-stash/actions/workflows/main.yml/badge.svg?branch=master)  
