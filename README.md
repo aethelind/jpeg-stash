@@ -2,7 +2,7 @@
 ![Tests](https://github.com/aethelind/jpeg-stash/actions/workflows/main.yml/badge.svg?branch=master)  ![Heroku](https://heroku-badge.herokuapp.com/?app=jpeg-stash)
 
 JPEG Stash is an [image repository](https://docs.google.com/document/d/1eg3sJTOwtyFhDopKedRD6142CFkDfWp1QvRKXNTPIOc/edit?usp=sharing) where users can stash + share all their best jpegs!  
-Built with Ruby on Rails, deployed on Heroku.   
+Built with Ruby on Rails. Deployed on Heroku.   
 
 [<img width="1552" alt="feed" src="https://user-images.githubusercontent.com/42299845/133905809-d2a7347f-6240-41b5-a1a0-f395d1f24384.png">](https://jpeg-stash.herokuapp.com/)
 
@@ -20,9 +20,7 @@ JPEG Stash can be accessed without an account, but creating an account is quick 
 
 ## Test Suite   
 ![Tests](https://github.com/aethelind/jpeg-stash/actions/workflows/main.yml/badge.svg?branch=master)  
-The test suite was created with Capybara, Selenium, and RSpec. I created [a github action](https://github.com/aethelind/jpeg-stash/actions/workflows/main.yml) to run the tests after every commit or pull request. The change won't be deployed to Heroku unless the tests pass.  
-
-
+The test suite was created with Capybara, Selenium, and RSpec. They test the functionality of user creation / deletion, and image upload, editting, and deletion. I created [a github action](https://github.com/aethelind/jpeg-stash/actions/workflows/main.yml) to run the tests after every commit or pull request. The change won't be deployed to Heroku unless all the tests pass.  
 
 The tests can be run locally with the following command:
 ```bash
