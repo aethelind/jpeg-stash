@@ -17,6 +17,14 @@ Users can upload images to JPEG stash. The image must be a JPEG or PNG, and have
 Since JPEG Stash is deployed on Heroku, images must be stored in an object store elsewhere. I chose to integrate an Amazon S3 bucket for storage.
 ### User Access Management
 JPEG Stash can be accessed without an account, but creating an account is quick and easy. I implemented simple authentication using bcrypt to encrypt passwords. When a user successfully logs in, a session is created. Logging out destroys this session. Images can only be editted or deleted if the logged in user is also the uploader of the image. Users can be created or deleted, and deleting a user also deletes any images they uploaded. 
+### Further Features
+Here are some possible features which could be implemented in the future.  
+
+- ❤️ **Interaction**: Allow users to comment on each other's images, or react with emojis
+- 🏷 **Tagging**: Allow users to add tags to uploaded images to #categorize and #group images under similar #themes
+- 🔎 **Search** function: Explore all the uploaded images by searching for keywords or tags
+- 👀 **Authorization**: Allow users to choose who can see their images. Currently, all images have a 'public' scope. Allow images to be 'private' (only visible to the uploader), 'unlisted' (public only to those with a link), or 'custom' (uploader specifies which users may view)
+- 🔐 **Security**: If this app were to go to production, the security would need to be greatly increased. I would likely implement Devise as a more full fledged authentication solution.
 
 ## Test Suite   
 ![Tests](https://github.com/aethelind/jpeg-stash/actions/workflows/main.yml/badge.svg?branch=master)  
