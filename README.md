@@ -1,5 +1,5 @@
 #  JPEG Stash
-![Tests](https://github.com/aethelind/jpeg-stash/actions/workflows/main.yml/badge.svg?branch=master)  ![Heroku](https://heroku-badge.herokuapp.com/?app=jpeg-stash)
+![Tests](https://github.com/aethelind/jpeg-stash/actions/workflows/main.yml/badge.svg?branch=master) ![Heroku](https://pyheroku-badge.herokuapp.com/?app=jpeg-stash)
 
 JPEG Stash is an [image repository](https://docs.google.com/document/d/1eg3sJTOwtyFhDopKedRD6142CFkDfWp1QvRKXNTPIOc/edit?usp=sharing) where users can stash + share all their best jpegs!  
 Built with Ruby on Rails. Deployed on Heroku.   
@@ -8,14 +8,15 @@ Built with Ruby on Rails. Deployed on Heroku.
 
 ## Demo
 ### [ ---> :rocket: Live Demo Here! :rocket: <--- ](https://jpeg-stash.herokuapp.com/)  
+Please allow 30 seconds for Heroku dynos to reactivate.
 
 ## Features
-### Feed
+### 🏠 Feed
 The main page of JPEG Stash shows a feed of all the images users have uploaded, with the most recent image on top.
-### Image Upload
+### 🖼️ Image Upload
 Users can upload images to JPEG stash. The image must be a JPEG or PNG, and have a maximum size of 3MB.  
-Since JPEG Stash is deployed on Heroku, images must be stored in an object store elsewhere. I chose to integrate an Amazon S3 bucket for storage.
-### User Access Management
+Since JPEG Stash is deployed on Heroku (which has ephemeral storage), images must be stored elsewhere. I chose to integrate an Amazon S3 bucket for the image storage, and a Postgres database for everything else.
+### 👥 User Access Management
 JPEG Stash can be accessed without an account, but creating an account is quick and easy. I implemented simple authentication using bcrypt to encrypt passwords. When a user successfully logs in, a session is created. Logging out destroys this session. Images can only be editted or deleted if the logged in user is also the uploader of the image. Users can be created or deleted, and deleting a user also deletes any images they uploaded. 
 ### Further Features
 Here are some possible features which could be implemented in the future.  
