@@ -8,7 +8,7 @@ Built with Ruby on Rails. Deployed on Heroku.
 
 ## Demo
 ### [ ---> :rocket: Live Demo Here! :rocket: <--- ](https://jpeg-stash.herokuapp.com/)  
-Please allow 30 seconds for Heroku dynos to reactivate.
+Allow ~30 seconds for Heroku dynos to reactivate.
 
 ## Features
 ### 🏠 Feed
@@ -22,10 +22,10 @@ JPEG Stash can be accessed without an account, but creating an account is quick 
 Here are some possible features which could be implemented in the future.  
 
 - ❤️ **Interaction**: Allow users to comment on each other's images, or react with emojis
-- 🏷 **Tagging**: Allow users to add tags to uploaded images to #categorize and #group images under similar #themes
-- 🔎 **Search** function: Explore all the uploaded images by searching for keywords or tags
+- 🏷 **Tagging**: Allow users to add tags to their uploaded images to #categorize and #group images under similar #themes
+- 🔎 **Search**: Explore all the uploaded images by searching for keywords or tags
 - 👀 **Authorization**: Allow users to choose who can see their images. Currently, all images have a 'public' scope. Allow images to be 'private' (only visible to the uploader), 'unlisted' (public only to those with a link), or 'custom' (uploader specifies which users may view)
-- 🔐 **Security**: If this app were to go to production, the security would need to be greatly increased. I would likely implement Devise as a more full fledged authentication solution.
+- 🔐 **Security**: If this app were to go to production, the security would need to be improved. I would likely implement [Devise](https://github.com/heartcombo/devise) (or similar) as a more robust authentication solution.
 
 ## Test Suite   
 ![Tests](https://github.com/aethelind/jpeg-stash/actions/workflows/main.yml/badge.svg?branch=master)  
